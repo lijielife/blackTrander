@@ -1,0 +1,16 @@
+CtaTemplate
+ EmaDemoStrategy
+ 
+ onTick
+CtaEngine::processTickEvent(self, event):　　　tick = event.dict_['data']
+  eventEngine 
+      self.ctaEngine = CtaEngine(self, self.eventEngine) vtEngine.py line 45
+	     def onTick(self, tick):    self.eventEngine.put vtGateway.py 26 
+		    vtGateway 被ctpGateway继承
+			  onRtnDepthMarketData ctpGateway.py 332行调用了self.gateway.onTick(tick) tick数据字典在这定义。
+			    
+			
+CtaEngine给EventEngine注册了tick处理函数，EventEngine给了ctaEngine，	
+VtGateway的onTick(self, tick):方法调用self.eventEngine.put(event1)给了eventEngine事件。
+	
+tick数据在词典里 不对应类.
